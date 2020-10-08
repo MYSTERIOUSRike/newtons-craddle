@@ -32,21 +32,22 @@ function setup() {
 	bob4=new bob(460,450,30)
 	bob5=new bob(520,450,30)
 
-	rope1=new rope(bob1.body,roof1.body,bob1.radius*-4,0)
-	rope2=new rope(bob2.body,roof1.body,bob2.radius*-2,0)
-	rope3=new rope(bob3.body,roof1.body,bob3.radius*0,0)
-	rope4=new rope(bob4.body,roof1.body,bob4.radius*2,0)
-	rope5=new rope(bob5.body,roof1.body,bob5.radius*4,0)
+	rope1=new rope(bob1.body,roof1.body,-30*4,0)
+	rope2=new rope(bob2.body,roof1.body,-30*2,0)
+	rope3=new rope(bob3.body,roof1.body,0,0)
+	rope4=new rope(bob4.body,roof1.body,30*2,0)
+	rope5=new rope(bob5.body,roof1.body,30*4,0)
   
 }
 
 
 function draw() {
+  
   rectMode(CENTER);
   background(255);
+
   Engine.update(engine);
   
-  drawSprites();
 
 	rope1.display();
 	rope2.display();
@@ -62,14 +63,17 @@ function draw() {
 	bob4.display();
 	bob5.display();
 
+	drawSprites();
+
 
 }
+
 function keyPressed (){
 
 if ( keyCode === UP_ARROW){
-
-	Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-75,y:-83})
-	//Matter.Body.applyForce(rope1.body,rope1.bodyA.position,{x:75,y:-83})
+	
+	//Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-75,y:-83})
+	Matter.Body.applyForce(rope1.body,rope1.bodyA.position,{x:75,y:-83})
 }
 }
 
